@@ -15,7 +15,7 @@ public class Borrow extends Person implements Serializable {
 
         // Define a custom format to include only year, month, day, hour, minute, and timezone offset
         DateTimeFormatter customFormat = DateTimeFormatter.ofPattern("EEE, dd MMM yyyy HH:mm ", Locale.US);
-        this.date = customFormat.toString();
+        this.date = currentDateTime.format(customFormat);
     }
 
 
