@@ -26,4 +26,7 @@ bin/
 .vscode/
 
 ### Mac OS ###
-.DS_Store
+.DS_Store!/Borrowed Book List.txt
+!/Registered Book List.txt
+!/test.java
+!/Borrowed Book List.txt
