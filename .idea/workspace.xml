@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31a466b2-f7ab-4b73-83cb-d49d77673a10" name="Changes" comment="Borrow.java fixed date">
-      <change afterPath="$PROJECT_DIR$/Borrowed Book List.txt" afterDir="false" />
+    <list default="true" id="31a466b2-f7ab-4b73-83cb-d49d77673a10" name="Changes" comment="git ignores">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711096883453</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="git ignores">
+      <option name="closed" value="true" />
+      <created>1711097294018</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711097294018</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +157,7 @@
     <MESSAGE value="register book without deleting previous data fixed" />
     <MESSAGE value="borrow book register fix" />
     <MESSAGE value="Borrow.java fixed date" />
-    <option name="LAST_COMMIT_MESSAGE" value="Borrow.java fixed date" />
+    <MESSAGE value="git ignores" />
+    <option name="LAST_COMMIT_MESSAGE" value="git ignores" />
   </component>
 </project>
