@@ -7,6 +7,10 @@ public class Main {
         Register reg = new Register();
         Information info = new Information();
         ArrayList<Borrow> borrowed;
+        ArrayList<Book> books;
+//        reg.RegisterBook(sc,books);
+        books = info.showAllBooks();
+        System.out.println(books);
         reg.setBorrowedBookList(sc,info.showAllBorrowed());
         borrowed = info.showAllBorrowed();
         System.out.println(borrowed);

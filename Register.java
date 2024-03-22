@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Register {
+    LibraryExceptions exceptions;
     public Register() throws Exception {
+         exceptions = new LibraryExceptions(new Information());
     }
     File bookList = new File("Registered Book List.txt");
     ObjectOutputStream obrl = null;
@@ -28,7 +30,7 @@ public class Register {
             System.out.println("Enter the Full Name of the " + i + " of the Student");
             String fName = sc.nextLine();
             System.out.println("Enter the ISBN of the " + i + " Book");
-            String isbn = sc.nextLine();
+            String isbn = exceptions.setIsbn(sc, i);
             System.out.println("Enter the ID of the " + i + " Student");
             String id = sc.nextLine();
             borrowedList.add(new Borrow(fName, isbn, id));
