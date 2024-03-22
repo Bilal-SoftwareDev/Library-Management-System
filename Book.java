@@ -33,8 +33,7 @@ public class Book implements Serializable {
 
     @Override//overriding toString method
     public String toString() {
-        return "\n--------------------------"+
-                "\n title = " + title +
+        return  "\n title = " + title +
                 "\n author = " + author +
                 "\n edition = " + edition +
                 "\n yearOfPublication = " + yearOfPublication +

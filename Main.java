@@ -6,8 +6,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Register reg = new Register();
         Information info = new Information();
-        reg.RegisterBook(sc,info.showAllBooks());
-        ArrayList<Book> books = info.showAllBooks();
-        System.out.println(books);
+        ArrayList<Borrow> borrowed;
+        reg.setBorrowedBookList(sc,info.showAllBorrowed());
+        borrowed = info.showAllBorrowed();
+        System.out.println(borrowed);
     }
 }

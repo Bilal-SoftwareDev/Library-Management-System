@@ -5,10 +5,41 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Register {
-    File file = new File("Registered Book List.txt");
-    ObjectOutputStream oos = null;
-
     public Register() throws Exception {
+    }
+    File bookList = new File("Registered Book List.txt");
+    ObjectOutputStream obrl = null;
+    File borrowedBookList = new File("Borrowed Book List.txt");
+
+    ObjectOutputStream obbl = null;
+
+    public void setBorrowedBookList(Scanner sc, ArrayList<Borrow> borrowed) throws Exception{
+        ArrayList<Borrow> borrowedList = new ArrayList<>();
+        System.out.println("Enter how many student will Borrow a book");
+        int Num = sc.nextInt();
+        sc.nextLine();
+        if(borrowed != null){
+            for(Borrow x: borrowed)
+                borrowedList.add(x);
+        }
+        System.out.println("array of the previous borrowed from array");
+        System.out.println(borrowedList);
+        for (int i = 1; i <= Num; i++) {
+            System.out.println("Enter the Full Name of the " + i + " of the Student");
+            String fName = sc.nextLine();
+            System.out.println("Enter the ISBN of the " + i + " Book");
+            String isbn = sc.nextLine();
+            System.out.println("Enter the ID of the " + i + " Student");
+            String id = sc.nextLine();
+            borrowedList.add(new Borrow(fName, isbn, id));
+        }
+        System.out.println("array of borrowed after register");
+        System.out.println(borrowedList);
+        obbl = new ObjectOutputStream(new FileOutputStream(borrowedBookList));
+        obbl.writeObject(borrowedList);
+        obbl.close();
+        System.out.println("borrowed registered successfully");
+
     }
     public void RegisterBook(Scanner sc,ArrayList<Book> books) throws Exception {
         ArrayList<Book> bookArrayList = new ArrayList<>();
@@ -49,9 +80,9 @@ public class Register {
                     shellNumber, rowNumber, subject));
         }
         System.out.println(bookArrayList);
-        oos  = new ObjectOutputStream(new FileOutputStream(file));
-        oos.writeObject(bookArrayList);
-        oos.close();
+        obrl = new ObjectOutputStream(new FileOutputStream(bookList));
+        obrl.writeObject(bookArrayList);
+        obrl.close();
         System.out.println("Books Registered Successfully");
     }
 }
