@@ -1,24 +1,27 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 public class LibraryExceptions extends Exception {
-    public LibraryExceptions() {
-    }
-
+    Information info;
     ArrayList<Book> books;
 
-    public LibraryExceptions(Information info) throws Exception {
+    public LibraryExceptions() throws Exception{
+       info =  new Information();
         books = info.showAllBooks();
     }
 
-    public void checkQuantity(Book book) {
+
+
+    public void checkQuantity(Book book) throws Exception {
         if (book.quantity == 0) {
             System.out.println("quantity is zero");
             System.exit(0);
         }
+        new Register().updateQuantity(book);
     }
 
-    public String setIsbn(Scanner sc,int Num) {
+    public String setIsbn(Scanner sc,int Num) throws Exception{
         System.out.println("System.out.println(\"Enter the ISBN of the " + Num + " Book");
         String isbn = sc.nextLine();
         for (Book x : books) {

@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="31a466b2-f7ab-4b73-83cb-d49d77673a10" name="Changes" comment="git ignores last">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibraryExceptions.java" afterDir="false" />
+    <list default="true" id="31a466b2-f7ab-4b73-83cb-d49d77673a10" name="Changes" comment="checking quantity added to borrow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Borrowed Book List.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/Information.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibraryExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/LibraryExceptions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Registered Book List.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +167,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711102901330</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="checking quantity added to borrow">
+      <option name="closed" value="true" />
+      <created>1711106919030</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711106919030</updated>
+    </task>
+    <task id="LOCAL-00009" summary="checking quantity added to borrow">
+      <option name="closed" value="true" />
+      <created>1711106927704</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711106927704</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +221,22 @@
     <MESSAGE value="Borrow.java fixed date" />
     <MESSAGE value="git ignores" />
     <MESSAGE value="git ignores last" />
-    <option name="LAST_COMMIT_MESSAGE" value="git ignores last" />
+    <MESSAGE value="checking quantity added to borrow" />
+    <option name="LAST_COMMIT_MESSAGE" value="checking quantity added to borrow" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Register.java</url>
+          <line>48</line>
+          <properties class="Register" method="updateQuantity">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

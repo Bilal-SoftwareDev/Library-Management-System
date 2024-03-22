@@ -6,8 +6,10 @@ import java.util.Scanner;
 
 public class Register {
     LibraryExceptions exceptions;
+    Information information;
     public Register() throws Exception {
-         exceptions = new LibraryExceptions(new Information());
+         exceptions = new LibraryExceptions();
+         information = new Information();
     }
     File bookList = new File("Registered Book List.txt");
     ObjectOutputStream obrl = null;
@@ -43,8 +45,32 @@ public class Register {
         System.out.println("borrowed registered successfully");
 
     }
-    public void RegisterBook(Scanner sc,ArrayList<Book> books) throws Exception {
+
+    public void updateQuantity(Book book) throws Exception {
+        ArrayList<Book> bookArrayList = information.showAllBooks();
+        int index = 0;
+        for (Book x : bookArrayList) {
+            if (x.ISBN.equals(book.ISBN)){
+                index = bookArrayList.indexOf(x);
+                   if(x.quantity != 0)
+                       x.quantity--;
+                bookArrayList.set(index, x);
+                updateBookList(bookArrayList);
+            }
+        }
+    }
+
+    public void updateBookList(ArrayList<Book> books) throws Exception {
+        System.out.println(books);
+        obrl = new ObjectOutputStream(new FileOutputStream(bookList));
+        obrl.writeObject(books);
+        obrl.close();
+        System.out.println("Books Registered Successfully");
+
+    }
+    public void RegisterBook(Scanner sc) throws Exception {
         ArrayList<Book> bookArrayList = new ArrayList<>();
+        ArrayList<Book> books = information.showAllBooks();
         System.out.println("Enter how many book will Register");
         int Num = sc.nextInt();
         sc.nextLine();
