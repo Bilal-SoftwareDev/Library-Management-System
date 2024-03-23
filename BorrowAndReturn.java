@@ -3,11 +3,11 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class Borrow extends Person implements Serializable {
-    public Borrow() {
+public class BorrowAndReturn extends Person implements Serializable {
+    public BorrowAndReturn() {
     }
 
-    public Borrow( String fName,String isbn, String id) {
+    public BorrowAndReturn(String fName, String isbn, String id) {
         this.fName = fName;
         this.isbn = isbn;
        setId(id);

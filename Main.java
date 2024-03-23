@@ -6,14 +6,21 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Register reg = new Register();
         Information info = new Information();
-        ArrayList<Borrow> borrowed;
+        ArrayList<BorrowAndReturn> borrowed;
+        ArrayList<BorrowAndReturn> returned;
         ArrayList<Book> books;
 //        reg.RegisterBook(sc);
         books = info.showAllBooks();
         System.out.println(books);
-        reg.setBorrowedBookList(sc,info.showAllBorrowed());
+//        reg.setBorrowedBookList(sc,info.showAllBorrowed());
+        reg.setReturnedList(sc);
+        returned = info.showAllReturned();
+        System.out.println(returned);
+        System.out.println("borrwed");
         borrowed = info.showAllBorrowed();
         System.out.println(borrowed);
-        System.out.println(info.showAllBooks());
+        System.out.println("books");
+        System.out.println(books);
+
     }
 }

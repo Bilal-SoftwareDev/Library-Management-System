@@ -8,14 +8,13 @@ public class LibraryExceptions extends Exception {
             System.out.println("quantity is zero");
             System.exit(0);
         }
-        new Register().updateQuantity(book);
+        new Register().updateQuantity(book,1);
     }
 
     public String setIsbn(Scanner sc,int Num) throws Exception{
         System.out.println("System.out.println(\"Enter the ISBN of the " + Num + " Book");
         String isbn = sc.nextLine();
-        ArrayList<Book> books = new Information().showAllBooks();
-        for (Book x : books) {
+        ArrayList<Book> books = new Information().showAllBooks();        for (Book x : books) {
             if(isbn.equals(x.ISBN)) {
                 checkQuantity(x);
                     return isbn;

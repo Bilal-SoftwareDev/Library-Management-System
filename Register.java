@@ -6,24 +6,27 @@ import java.util.Scanner;
 
 public class Register {
     LibraryExceptions exceptions;
-    Information information;
+    Information info;
     public Register() throws Exception {
          exceptions = new LibraryExceptions();
-         information = new Information();
+         info = new Information();
     }
     File bookList = new File("Registered Book List.txt");
     ObjectOutputStream obrl = null;
     File borrowedBookList = new File("Borrowed Book List.txt");
 
     ObjectOutputStream obbl = null;
+    File returnedBookList = new File("Returned Book List.txt");
 
-    public void setBorrowedBookList(Scanner sc, ArrayList<Borrow> borrowed) throws Exception{
-        ArrayList<Borrow> borrowedList = new ArrayList<>();
+    ObjectOutputStream orbb = null;
+
+    public void setBorrowedBookList(Scanner sc, ArrayList<BorrowAndReturn> borrowed) throws Exception{
+        ArrayList<BorrowAndReturn> borrowedList = new ArrayList<>();
         System.out.println("Enter how many student will Borrow a book");
         int Num = sc.nextInt();
         sc.nextLine();
         if(borrowed != null){
-            for(Borrow x: borrowed)
+            for(BorrowAndReturn x: borrowed)
                 borrowedList.add(x);
         }
         System.out.println("array of the previous borrowed from array");
@@ -35,7 +38,7 @@ public class Register {
             String isbn = exceptions.setIsbn(sc, i);
             System.out.println("Enter the ID of the " + i + " Student");
             String id = sc.nextLine();
-            borrowedList.add(new Borrow(fName, isbn, id));
+            borrowedList.add(new BorrowAndReturn(fName, isbn, id));
         }
         System.out.println("array of borrowed after register");
         System.out.println(borrowedList);
@@ -45,32 +48,84 @@ public class Register {
         System.out.println("borrowed registered successfully");
 
     }
+    public void setReturnedList(Scanner sc) throws Exception{
+        ArrayList<BorrowAndReturn> returnedList = info.showAllReturned();
+        System.out.println("array of the previous returned from array");
+        System.out.println(returnedList);
+        System.out.println("Enter how many student will return a book");
+        int Num = sc.nextInt();
+        sc.nextLine();
+        if (returnedList == null) {
+            returnedList = new ArrayList<>();
+        }
+        for (int i = 1; i <= Num; i++) {
+            BorrowAndReturn borrowed = info.searchBorrow(sc);
+            //delete borrowed class from borrowes
+            deleteBorrowed(borrowed);
+            Book book = new Information().SearchBook(borrowed.isbn);
+            updateQuantity(book, 2);
+            returnedList.add(borrowed);
+        }
+//        System.out.println("array of returned after register");
+//        System.out.println(returnedList);
+        orbb = new ObjectOutputStream(new FileOutputStream(returnedBookList));
+        orbb.writeObject(returnedList);
+        orbb.close();
+        System.out.println("returned registered successfully");
 
-    public void updateQuantity(Book book) throws Exception {
-        ArrayList<Book> bookArrayList = information.showAllBooks();
+    }
+
+    public void deleteBorrowed(BorrowAndReturn borrowed) throws Exception {
+        ArrayList<BorrowAndReturn> borrowedList = info.showAllBorrowed();
+        borrowedList.remove(borrowed);
+        updateBorrowedList(borrowedList);
+    }
+
+    public void updateBorrowedList(ArrayList<BorrowAndReturn> update) throws Exception {
+        obbl = new ObjectOutputStream(new FileOutputStream(borrowedBookList));
+        obbl.writeObject(update);
+        obbl.close();
+        System.out.println("borrowed updated successfully");
+    }
+    public void updateQuantity(Book book,int choice) throws Exception {
+        ArrayList<Book> bookArrayList = info.showAllBooks();
         int index = 0;
-        for (Book x : bookArrayList) {
-            if (x.ISBN.equals(book.ISBN)){
-                index = bookArrayList.indexOf(x);
-                   if(x.quantity != 0)
-                       x.quantity--;
-                bookArrayList.set(index, x);
-                updateBookList(bookArrayList);
-            }
+        switch (choice) {
+            case 1:
+                for (Book x : bookArrayList) {
+                    if (x.ISBN.equals(book.ISBN)){
+                        index = bookArrayList.indexOf(x);
+                        if(x.quantity != 0)
+                            x.quantity--;
+                        bookArrayList.set(index, x);
+                        updateBookList(bookArrayList);
+                    }
+                }
+                break;
+            case 2:
+                for (Book x : bookArrayList) {
+                    if (x.ISBN.equals(book.ISBN)){
+                        index = bookArrayList.indexOf(x);
+                            x.quantity++;
+                        bookArrayList.set(index, x);
+                        updateBookList(bookArrayList);
+                    }
+                }
+
         }
     }
 
     public void updateBookList(ArrayList<Book> books) throws Exception {
-        System.out.println(books);
         obrl = new ObjectOutputStream(new FileOutputStream(bookList));
         obrl.writeObject(books);
         obrl.close();
-        System.out.println("Books Registered Successfully");
+        new Information().showAllBooks();
+        System.out.println("Books updated Successfully");
 
     }
     public void RegisterBook(Scanner sc) throws Exception {
         ArrayList<Book> bookArrayList = new ArrayList<>();
-        ArrayList<Book> books = information.showAllBooks();
+        ArrayList<Book> books = info.showAllBooks();
         System.out.println("Enter how many book will Register");
         int Num = sc.nextInt();
         sc.nextLine();
