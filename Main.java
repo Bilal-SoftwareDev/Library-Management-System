@@ -15,12 +15,11 @@ public class Main {
 //        reg.setBorrowedBookList(sc,info.showAllBorrowed());
         reg.setReturnedList(sc);
         returned = info.showAllReturned();
+        System.out.println("returned");
         System.out.println(returned);
         System.out.println("borrwed");
         borrowed = info.showAllBorrowed();
         System.out.println(borrowed);
-        System.out.println("books");
-        System.out.println(books);
 
     }
 }

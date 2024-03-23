@@ -77,7 +77,14 @@ public class Register {
 
     public void deleteBorrowed(BorrowAndReturn borrowed) throws Exception {
         ArrayList<BorrowAndReturn> borrowedList = info.showAllBorrowed();
-        borrowedList.remove(borrowed);
+        int index = -1;
+        for(BorrowAndReturn x: borrowedList)
+            if ( x.isbn.equals(borrowed.isbn)) {
+                index = borrowedList.indexOf(x);
+            }
+        if (index != -1) {
+            borrowedList.remove(index);
+        }
         updateBorrowedList(borrowedList);
     }
 
