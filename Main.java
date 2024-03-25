@@ -9,17 +9,17 @@ public class Main {
         ArrayList<BorrowAndReturn> borrowed;
         ArrayList<BorrowAndReturn> returned;
         ArrayList<Book> books;
-//        reg.RegisterBook(sc);
-        books = info.showAllBooks();
+     borrowed = info.showAllBorrowed();
+     books = info.showAllBooks();
+     returned = info.showAllReturned();
+        System.out.println("Books");
         System.out.println(books);
-//        reg.setBorrowedBookList(sc,info.showAllBorrowed());
-        reg.setReturnedList(sc);
-        returned = info.showAllReturned();
+//        reg.setBorrowedBookList(sc);
+//        reg.setReturnedList(sc);
+        System.out.println("Borrowed");
+        System.out.println(borrowed);
         System.out.println("returned");
         System.out.println(returned);
-        System.out.println("borrwed");
-        borrowed = info.showAllBorrowed();
-        System.out.println(borrowed);
 
     }
 }

@@ -20,7 +20,8 @@ public class Register {
 
     ObjectOutputStream orbb = null;
 
-    public void setBorrowedBookList(Scanner sc, ArrayList<BorrowAndReturn> borrowed) throws Exception{
+    public void setBorrowedBookList(Scanner sc) throws Exception{
+        ArrayList<BorrowAndReturn> borrowed = info.showAllBorrowed();
         ArrayList<BorrowAndReturn> borrowedList = new ArrayList<>();
         System.out.println("Enter how many student will Borrow a book");
         int Num = sc.nextInt();
@@ -64,7 +65,8 @@ public class Register {
             deleteBorrowed(borrowed);
             Book book = new Information().SearchBook(borrowed.isbn);
             updateQuantity(book, 2);
-            returnedList.add(borrowed);
+
+            returnedList.add(new BorrowAndReturn(borrowed));
         }
 //        System.out.println("array of returned after register");
 //        System.out.println(returnedList);
@@ -74,6 +76,8 @@ public class Register {
         System.out.println("returned registered successfully");
 
     }
+
+
 
     public void deleteBorrowed(BorrowAndReturn borrowed) throws Exception {
         ArrayList<BorrowAndReturn> borrowedList = info.showAllBorrowed();
